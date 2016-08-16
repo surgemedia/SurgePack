@@ -1,0 +1,26 @@
+{
+  "name": "SurgePack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "browser-sync": "^2.11.1",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-nightwatch": "^0.2.9",
+    "gulp-shell": "^0.5.2",
+    "gulp-webpack": "^1.5.0",
+    "sass-loader": "^3.2.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  }
+}
