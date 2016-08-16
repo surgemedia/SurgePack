@@ -57,12 +57,26 @@
 	=            Create Bundle.js            =
 	========================================*/
 	//anything included below will be included in the bundle.js
-	//Example
+	var bower_dir = '../../bower_components/';
+	var node_dir = '../../node_modules/';
+
+	//NPM
+
+	//Bower
+	import $ from 'jquery';
+	// var bootstrap = require("bootstrap");
+	import owlCarousel from "owl-carousel-2-beta";
+
+
+
+
+	//CUSTOM
 	__webpack_require__(46);
+	__webpack_require__(47);
+
+
 	// TODO - Use NPM or BOWER
 	// Hammer js
-
-
 
 
 /***/ },
@@ -77,8 +91,38 @@
 /***/ 46:
 /***/ function(module, exports) {
 
-	alert('cheesecake');
-	alert('another cheesecake');
+	/*=============================================
+	= Enabling multi-level navigation =
+	===============================================*/
+	$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+	  event.preventDefault();
+	  event.stopPropagation();
+	  $(this).parent().siblings().removeClass('open');
+	  $(this).parent().toggleClass('open');
+	});
+
+
+/***/ },
+
+/***/ 47:
+/***/ function(module, exports) {
+
+	$('.owl-carousel').owlCarousel({
+	    loop:true,
+	    margin:10,
+	    nav:true,
+	    responsive:{
+	        0:{
+	            items:1
+	        },
+	        600:{
+	            items:1
+	        },
+	        1000:{
+	            items:1
+	        }
+	    }
+	});
 
 
 /***/ }
