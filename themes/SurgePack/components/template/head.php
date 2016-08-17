@@ -7,6 +7,3 @@
 	<meta property="og:title"              content="<?php the_title() ?>" />
 	<meta property="og:description"        content="<?php the_content() ?>" />
 	<meta property="og:image"              content="<?php echo getFeaturedUrl(); ?>" />
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/dist/bundle.css"></link>
-
-
