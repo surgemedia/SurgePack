@@ -1,4 +1,4 @@
-
+ <?php wp_head(); ?>
 <?php
 wp_head();
 get_component([ 'template' => 'template/header' ]);
