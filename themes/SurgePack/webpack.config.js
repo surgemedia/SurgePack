@@ -5,6 +5,11 @@ var path = require('path');
 var $ = require("jquery");
 
 module.exports = {
+  devServer: {
+        inline: true,
+        contentBase: './',
+        port: 3001
+    },
     entry: "./assets/js/main.js",
     output: {
         path: __dirname+'/dist/',
