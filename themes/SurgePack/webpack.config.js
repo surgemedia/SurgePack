@@ -3,6 +3,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 var path = require('path');
 var $ = require("jquery");
+var autoprefixer = require('autoprefixer');
+var precss       = require('precss');
 
 module.exports = {
     entry: "./assets/js/main.js",
@@ -19,7 +21,7 @@ module.exports = {
                 include: __dirname
      },{
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
       },
       {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -32,6 +34,22 @@ module.exports = {
         
     ]
   },
+  postcss: function () {
+        return {
+            defaults: [precss, autoprefixer],
+            cleaner:  [autoprefixer({ browsers: ['last 2 version',
+    '> 1%',
+    'ie >= 9',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4',
+    'bb >= 10'] })]
+        };
+    },
   sassLoader: { },
   plugins: [
         new ExtractTextPlugin("bundle.css"),
