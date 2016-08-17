@@ -1,7 +1,10 @@
 
+<?php wp_head(); ?>
+<?php get_component([ 'template' => 'template/head' ]); ?>
+
+</head>
+<?php get_component([ 'template' => 'template/header' ]); ?>
 <?php
-wp_head();
-get_component([ 'template' => 'template/header' ]);
 if (is_front_page()){ ?>
 <?php
 // debug(get_field('slides'));
