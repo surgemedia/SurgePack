@@ -1,4 +1,4 @@
-<?php
+<?php 
 /*=====================================
 =            Add Component            =
 =====================================*/
@@ -20,14 +20,13 @@ function get_component($files = Array()){
 			$component = false;
 			if(isset($files['vars'])){
 				$vars = $files['vars']; //gets vars
-				
 			}
 			if(isset($files['return_string'])){
 				$return_string = $files['return_string'];
 			}
-			ob_start(); //start object buffer
+			ob_start(); //start object buffer 
 			if(locate_template($compDir.$files['template'].'.php') != ''){
-			$component = include(locate_template($compDir.$files['template'].'.php')); //instead of echoing it, its stored
+			$component = include(locate_template($compDir.$files['template'].'.php')); //instead of echoing it, its stored 
 			}
 			if($component == false){
 				$error_message = 'BUILDER: Can not find the file '.$files['template'].' in folder '.$compDir;
@@ -40,7 +39,7 @@ function get_component($files = Array()){
 			=================================================*/
 			$files['concatStyles'] = NULL;
 			if(isset($files['styles'])){
-				for ($i=0; $i < sizeof($files['styles']); $i++) {
+				for ($i=0; $i < sizeof($files['styles']); $i++) { 
 					//add into on string and add to bucket
 					$files['concatStyles'] .= " ".file_get_contents($styleDir.$files['styles'][$i].'.css');
 				}
@@ -51,10 +50,10 @@ function get_component($files = Array()){
 			if(isset($files['remove_tags']) && sizeof($files['remove_tags']) > 0){
 				$tags = [];
 				$sizeof = sizeof($files['remove_tags']);
-				for ($i=0; $i < $sizeof; $i++) {
+				for ($i=0; $i < $sizeof; $i++) { 
 					if(isset($files['remove_tags'][$i])){
 						$component = strip_tags_content($component,'<'.$files['remove_tags'][$i].'>',TRUE);
-					}
+					}	
 				}
 			}
 			/*================================================
@@ -73,23 +72,23 @@ function get_component($files = Array()){
 			/*==================================
 			=            Dependency            =
 			==================================*/
-			function strip_tags_content($text, $tags = '', $invert = FALSE) {
+			function strip_tags_content($text, $tags = '', $invert = FALSE) { 
 
-			  preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
-			  $tags = array_unique($tags[1]);
-
-			  if(is_array($tags) AND count($tags) > 0) {
-			    if($invert == FALSE) {
-			      return preg_replace('@<(?!(?:'. implode('|', $tags) .')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
-			    }
-			    else {
-			      return preg_replace('@<('. implode('|', $tags) .')\b.*?>.*?</\1>@si', '', $text);
-			    }
-			  }
-			  elseif($invert == FALSE) {
-			    return preg_replace('@<(\w+)\b.*?>.*?</\1>@si', '', $text);
-			  }
-			  return $text;
-			}
+			  preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags); 
+			  $tags = array_unique($tags[1]); 
+			    
+			  if(is_array($tags) AND count($tags) > 0) { 
+			    if($invert == FALSE) { 
+			      return preg_replace('@<(?!(?:'. implode('|', $tags) .')\b)(\w+)\b.*?>.*?</\1>@si', '', $text); 
+			    } 
+			    else { 
+			      return preg_replace('@<('. implode('|', $tags) .')\b.*?>.*?</\1>@si', '', $text); 
+			    } 
+			  } 
+			  elseif($invert == FALSE) { 
+			    return preg_replace('@<(\w+)\b.*?>.*?</\1>@si', '', $text); 
+			  } 
+			  return $text; 
+			} 
 
 ?>
