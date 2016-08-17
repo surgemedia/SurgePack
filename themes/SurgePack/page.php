@@ -33,8 +33,11 @@ if (is_front_page()){ ?>
 											 ]);
  ?>
 <?php } ?>
-<div class="row">
 <?php
+/*=====================================
+=            Begin Builder            =
+=====================================*/
+
 $layout_builder = get_field('layout');
 //is there block?
 // debug($layout_builder);
@@ -67,8 +70,12 @@ foreach ($layout_builder as $key => $value) {
 						'vars' => []
 			]);
 }
+
+/*=====================================
+=            End Builder              =
+=====================================*/
  ?>
-</div>
+
 <?php
 	get_component([ 'template' => 'template/footer' ]);
  wp_footer();
