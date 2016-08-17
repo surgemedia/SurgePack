@@ -7,6 +7,11 @@ var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
 
 module.exports = {
+  devServer: {
+        inline: true,
+        contentBase: './',
+        port: 3001
+    },
     entry: "./assets/js/main.js",
     output: {
         path: __dirname+'/dist/',
