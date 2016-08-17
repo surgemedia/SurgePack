@@ -1,3 +1,6 @@
+require('owl.carousel'); //just get the script
+
+
 $('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,

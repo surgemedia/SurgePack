@@ -31,10 +31,12 @@ add_action('wp_enqueue_scripts', 'theme_scripts');
 function theme_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-    	// wp_enqueue_script('jquery'); // Enqueue Wordpress it!
         wp_deregister_script('jquery'); // Deregister WordPress jQuery
         wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), '3.0');
         wp_register_script('bundlejs', get_template_directory_uri() . '/dist/bundle.js'); // Custom scripts
+    		wp_enqueue_script('jquery'); // Enqueue Wordpress it!
+    		wp_enqueue_script('bundlejs'); // Enqueue Wordpress it!
+
     }
 
 }
