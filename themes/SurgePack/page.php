@@ -1,8 +1,7 @@
 
 <?php
-include('component/template/head.php');
- get_component([ 'template' => 'template/header' ]);
-
+wp_head();
+get_component([ 'template' => 'template/header' ]);
 if (is_front_page()){ ?>
 <?php
 // debug(get_field('slides'));
@@ -67,7 +66,6 @@ foreach ($layout_builder as $key => $value) {
  ?>
 </div>
 <?php
- get_component([ 'template' => 'template/footer', ]);
- include('component/template/foot.php');
-
-  ?>
+	get_component([ 'template' => 'template/footer' ]);
+ wp_footer();
+?>
