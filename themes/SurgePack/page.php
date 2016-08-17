@@ -35,6 +35,7 @@ if (is_front_page()){ ?>
 <?php
 $layout_builder = get_field('layout');
 //is there block?
+// debug($layout_builder);
 if(isset($layout_builder[0])){
 foreach ($layout_builder as $key => $value) {
 	$section_file = $value['acf_fc_layout'];
@@ -43,7 +44,7 @@ foreach ($layout_builder as $key => $value) {
 	//Section Options
 	$value["section"] = $section_file;
 	$value['section_data'] = get_section_options($value);
-
+	// debug($value["section"]);
   // debug($value);
 
 	//Call file for display
