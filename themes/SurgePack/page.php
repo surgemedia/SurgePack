@@ -1,7 +1,6 @@
 
 <?php wp_head(); ?>
 <?php get_component([ 'template' => 'template/head' ]); ?>
-
 </head>
 <?php get_component([ 'template' => 'template/header' ]); ?>
 <?php
